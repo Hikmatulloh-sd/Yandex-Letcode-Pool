@@ -1,8 +1,12 @@
 def two_sum(arr,target):
-    for i in range(len(arr)):
-        for j in range(1,len(arr)):
-            if arr[i] + arr[j] == target:
-                return arr.index(arr[i]),arr.index(arr[j])
+    num_to_index = {}
 
-arr = [2,3,4,3]
-print(two_sum(arr,7))
+    for i,num in enumerate(arr):
+        complement = target - num
+        if complement in num_to_index:
+            return num_to_index[complement],i
+        
+        num_to_index[num] = i
+
+arr = [2,3,4,5]
+print(two_sum(arr,9))
